@@ -7,5 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Francesco Coacci & Abi Castro",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@hashgraph/sdk": "^2.19.0",
+    "dotenv": "^16.0.3"
+  }
 }
