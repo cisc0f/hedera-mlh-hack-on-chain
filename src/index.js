@@ -18,10 +18,11 @@ const hbarTransferExample = async () => {
     // Transfer HBARs to an account
     console.log("Step 3: Transfer HBARs to an account");
     await transferHbars(operatorAccountId, "0.0.26300235", 200, client);
+};
 
+hbarTransferExample();
 
-// Step 4. Instantiate the mirror node client
-
+// Query the mirror node for an accounts HBAR Balance
 console.log("Step 4: Query the mirror node for the account's HBAR Balance")
 const mirrorNodeClient = new MirrorNodeClient('testnet');
 
@@ -34,7 +35,3 @@ mirrorNodeClient.getAccountInfo('0.0.49004063')
 .catch(rejectErr => {
     console.log(`An error has occurred: ${rejectErr.message}`);
 });
-
-};
-
-hbarTransferExample();
