@@ -2,7 +2,7 @@ const { AccountId, PrivateKey, Client } = require('@hashgraph/sdk');
 const { transferHbars } = require('../services/hederaAccountServices');
 const { MirrorNodeClient } = require('../services/mirrorNodeClient');
 
-require('dotenv').config({path: __dirname + '/../.env'});
+require('dotenv').config({ path: __dirname + '/../.env' });
 
 const operatorAccountId = AccountId.fromString(process.env.OPERATOR_ACCOUNT_ID);
 const operatorPrivateKey = PrivateKey.fromString(process.env.OPERATOR_PRIVATE_KEY);
@@ -10,7 +10,7 @@ const operatorPrivateKey = PrivateKey.fromString(process.env.OPERATOR_PRIVATE_KE
 const client = Client.forTestnet().setOperator(operatorAccountId, operatorPrivateKey);
 
 const hbarTransferExample = async () => {
-    
+
     // Step 1: Create a new testnet account using the Hedera Portal
     // https://portal.hedera.com/
     // Step 2: Add account ID and private key to the .env file
@@ -18,23 +18,14 @@ const hbarTransferExample = async () => {
     // Transfer HBARs to an account
     console.log("Step 3: Transfer HBARs to an account");
     await transferHbars(operatorAccountId, "0.0.26300235", 200, client);
-
-
-// Step 4. Instantiate the mirror node client
-
-console.log("Step 4: Query the mirror node for the account's HBAR Balance")
-const mirrorNodeClient = new MirrorNodeClient('testnet');
-
-// Query the mirror node client for the account balance by account id
-mirrorNodeClient.getAccountInfo('0.0.49004063')
-.then(acc => {
-   const accountBalance = acc.balance.balance;
-   console.log(`Account HBAR Balance: ${accountBalance}`)
-})
-.catch(rejectErr => {
-    console.log(`An error has occurred: ${rejectErr.message}`);
-});
-
 };
 
 hbarTransferExample();
+
+
+// Query the mirror node for an accounts HBAR Balance
+console.log("Query the mirror node for the account's HBAR Balance");
+const mirrorNodeClient = new MirrorNodeClient('testnet');
+
+// Query the mirror node client for the account balance by account id
+// TO COMPLETE
