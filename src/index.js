@@ -27,5 +27,5 @@ hbarTransferExample();
 console.log("Query the mirror node for the account's HBAR Balance");
 const mirrorNodeClient = new MirrorNodeClient('testnet');
 
-// Query the mirror node client for the account balance by account id
+// Query the mirror node for the account balance by account id
 // TO COMPLETE
