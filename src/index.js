@@ -23,7 +23,7 @@ const hbarTransferExample = async () => {
 hbarTransferExample();
 
 // Query the mirror node for an accounts HBAR Balance
-console.log("Step 4: Query the mirror node for the account's HBAR Balance")
+console.log("Query the mirror node for the account's HBAR Balance")
 const mirrorNodeClient = new MirrorNodeClient('testnet');
 
 // Query the mirror node client for the account balance by account id
